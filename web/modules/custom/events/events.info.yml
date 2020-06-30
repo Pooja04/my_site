@@ -1,0 +1,5 @@
+name: Events
+type: module
+description: Testing export of content types and views on module enable
+core_version_requirement: ^8 || ^9
+package: Custom
