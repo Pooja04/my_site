@@ -1,0 +1,17 @@
+uuid: 314e931f-dc33-4700-afa1-fe7dfefe0611
+langcode: en
+status: true
+dependencies: {  }
+id: local
+label: local
+description: ''
+folder: sites/default/config/local
+module: {  }
+theme: {  }
+blacklist:
+  - views.view.activity_listing
+  - views.view.event_listing
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0
