@@ -1,0 +1,37 @@
+uuid: 3a0d7e62-f914-45e6-ad29-36d8355e5453
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.activities.body
+    - field.field.node.activities.field_test
+    - node.type.activities
+  module:
+    - text
+    - user
+id: node.activities.default
+targetEntityType: node
+bundle: activities
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_test:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }
