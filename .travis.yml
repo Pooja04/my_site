@@ -44,26 +44,4 @@ install:
   # Move back to the project root as script will be run from that directory.
   - cd ..
 
-before_script:
-
-  # This fixes a fail when install Drupal.
-  - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-
-  # Mysql might time out for long tests, increase the wait timeout.
-  - mysql -e 'SET @@GLOBAL.wait_timeout=1200'
-
-  # Install Drupal and enable the required modules (including this one).
-  - mysql -e 'create database drupal;'
-  - cd $TRAVIS_BUILD_DIR/drupal && drush --yes site-install standard --db-url="mysql://root@127.0.0.1/drupal"
-
-  # Dependency Modules
-  - cd $TRAVIS_BUILD_DIR/drupal && drush --yes en $MODULE_NAME
-  - cd $TRAVIS_BUILD_DIR/drupal && drush --yes en simpletest
-
-  # Export web server URL for browser tests.
-  - export SIMPLETEST_BASE_URL=http://localhost:8080
-
-  # Export database variable for kernel tests.
-  - export SIMPLETEST_DB=mysql://root:@127.0.0.1/drupal
-
 script: SIMPLETEST_BASE_URL=http://127.0.0.1:8080 SIMPLETEST_DB=mysql://root:@127.0.0.1/drupal vendor/bin/phpunit -c web/core/phpunit.xml.dist --group config_filter
