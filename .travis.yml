@@ -14,7 +14,7 @@ env:
     - DRUPAL_REPO='git://drupalcode.org/project/drupal.git'
     - DRUPAL_VERSION='8.8.x'
     - PHPCS_VERSION='2.7.*'
-    - CODER_VERSION='8.8.x'
+    - CODER_VERSION='8.8.0'
 
 notifications:
   slack: 'xxx'
