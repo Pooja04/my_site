@@ -23,6 +23,9 @@ env:
 before_install:
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
+install:
+  - composer --verbose install
+
 before_script:
   - cp .travis/RoboFile.php .
 
