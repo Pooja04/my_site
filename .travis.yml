@@ -23,7 +23,7 @@ cache:
   - "$HOME/.drush/cache"
 
 mysql:
-database: drupal
+  database: drupal
   username: root
   password:
 
