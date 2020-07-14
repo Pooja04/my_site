@@ -33,7 +33,7 @@ before_install:
 
 install:
   - cd ..
-  - composer create-project drupal-composer/drupal-project:8.x drupal --stability dev --no-interaction
+  - composer create-project drupal/recommended-project:8.8.0 --stability dev --no-interaction
   - mysql -e 'create database drupal;'
   - mv config_filter drupal/web/modules/contrib/config_filter
   - cd drupal/web
