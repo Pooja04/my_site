@@ -23,9 +23,9 @@ cache:
   - "$HOME/.drush/cache"
 
 mysql:
-  database: drupal
+  database: my_site
   username: root
-  password:
+  password: root
 
 before_install:
   - composer self-update
@@ -34,7 +34,7 @@ before_install:
 install:
   - cd ..
   - composer create-project drupal/recommended-project:8.8.0 --stability dev --no-interaction
-  - mysql -e 'create database drupal;'
+  - mysql -e 'create database my_site;'
   - mv config_filter drupal/web/modules/contrib/config_filter
   - cd drupal/web
   - drush --verbose site-install --db-url=mysql://root:@127.0.0.1/drupal --yes
@@ -44,4 +44,4 @@ install:
   # Move back to the project root as script will be run from that directory.
   - cd ..
 
-script: SIMPLETEST_BASE_URL=http://127.0.0.1:8080 SIMPLETEST_DB=mysql://root:@127.0.0.1/drupal vendor/bin/phpunit -c web/core/phpunit.xml.dist --group config_filter
+script: SIMPLETEST_BASE_URL=http://127.0.0.1:8080 SIMPLETEST_DB=mysql://root:@127.0.0.1/my_site vendor/bin/phpunit -c web/core/phpunit.xml.dist --group config_filter
